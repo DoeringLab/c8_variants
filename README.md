@@ -1,14 +1,14 @@
-[![Validate and Index BED file](https://github.com/DoeringLab/kn99_variants/actions/workflows/validate-bed.yml/badge.svg)](https://github.com/DoeringLab/kn99_variants/actions/workflows/validate-bed.yml)
+[![Validate and Index BED file](https://github.com/DoeringLab/c8_variants/actions/workflows/validate-bed.yml/badge.svg)](https://github.com/DoeringLab/c8_variants/actions/workflows/validate-bed.yml)
 
-# kn99_variants
+# c8_variants
 
 This repository stores a bed file describing regions that should be excluded from
-WGS samples which have KN99 as a parent strain. The bedfile can be used in nextflow
+WGS samples which have c8 as a parent strain. The bedfile can be used in nextflow
 workflows by providing the following path:
 
-https://raw.githubusercontent.com/DoeringLab/kn99_variants/main/kn99_exclude_regions.bed
+https://raw.githubusercontent.com/DoeringLab/c8_variants/main/c8_exclude_regions.bed
 
-## Updaing kn99_exclude_regions.bed
+## Updaing c8_exclude_regions.bed
 
 To update the bed file, you can click on the file, and then in the top right hand side, 
 you'll see a pencil icon. Click the pencil icon and a new page will load where you 
@@ -38,17 +38,17 @@ best way to add your new line is to copy the line above and paste it in, making 
 
 ## Automatic Checks and Indexing
 
-When you commit a change to `kn99_exclude_regions.bed` and push it to the main branch
+When you commit a change to `c8_exclude_regions.bed` and push it to the main branch
 (which will happen automatically when you hit "commit" if you are editing this through
 github), there is an automatic workflow that is initiated. It will validate that the bed
 file is still a correct bed file, and then it will run `GATK IndexFeatureFile` to re-create
-the `kn99_exclude_regions.bed.idx` file. If your application requires the `.idx` file, then
+the `c8_exclude_regions.bed.idx` file. If your application requires the `.idx` file, then
 you'll need to wait until the workflow completes, ~30 seconds, which you can watch if you 
 click on the "actions" tab.  
 
 If the workflow is successful, then the status badge will remain green:
 
-[![Validate and Index BED file](https://github.com/DoeringLab/kn99_variants/actions/workflows/validate-bed.yml/badge.svg)](https://github.com/DoeringLab/kn99_variants/actions/workflows/validate-bed.yml)
+[![Validate and Index BED file](https://github.com/DoeringLab/c8_variants/actions/workflows/validate-bed.yml/badge.svg)](https://github.com/DoeringLab/c8_variants/actions/workflows/validate-bed.yml)
 
 if that badge is anything other than green (or if the workflow is currently running), then
 you should not try to use the bed file or the .idx file -- it is possible that you messed up

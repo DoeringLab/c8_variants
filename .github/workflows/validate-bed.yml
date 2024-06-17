@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - kn99_exclude_regions.bed
+      - c8_exclude_regions.bed
       - validate_bed.py
       - .github/workflows/validate-bed.yml
 
@@ -28,18 +28,18 @@ jobs:
         pip install pandas
 
     - name: Validate BED file
-      run: python validate_bed.py kn99_exclude_regions.bed
+      run: python validate_bed.py c8_exclude_regions.bed
 
     - name: Run GATK4 IndexFeatureFile
       run: |
         docker run --rm -v ${{ github.workspace }}:/data quay.io/biocontainers/gatk4:4.5.0.0--py36hdfd78af_0 \
-        gatk IndexFeatureFile -I /data/kn99_exclude_regions.bed
+        gatk IndexFeatureFile -I /data/c8_exclude_regions.bed
 
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add kn99_exclude_regions.bed.idx
+        git add c8_exclude_regions.bed.idx
         git commit -m "Add BED file index"
         git push
       env:
